@@ -1,0 +1,39 @@
+﻿@model SurveyViewModel
+
+<div class="form-group">
+    <form asp-controller="Survey" asp-action="Submit" method="post">
+        <div>
+            <label asp-for="ParkSelection"></label>
+            <select asp-for="ParkSelection" asp-items="Model.Parks" class="form-control"></select>
+        </div>
+        <div>
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div>
+            <label asp-for="StateSelection"></label>
+            <select asp-for="StateSelection" asp-items="Model.States" class="form-control"></select>
+        </div>
+        <div>
+            <div>
+                <label asp-for="ActivityLevel"></label>
+            </div>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-info" asp-for="ActivityLevel">
+                    <input asp-for="ActivityLevel" type="radio" id="option1" autocomplete="off" value="inactive">Inactive
+                </label>
+                <label class="btn btn-warning" asp-for="ActivityLevel">
+                    <input asp-for="ActivityLevel" type="radio" id="option2" autocomplete="off" value="sedentary">Sedentary
+                </label>
+                <label class="btn btn-success" asp-for="ActivityLevel">
+                    <input asp-for="ActivityLevel" type="radio" id="option3" autocomplete="off" value="active">Active
+                </label>
+                <label class="btn btn-danger" asp-for="ActivityLevel">
+                    <input asp-for="ActivityLevel" type="radio" id="option3" autocomplete="off" value="extremely active">Extremely Active
+                </label>
+            </div>
+        </div>
+        <br />
+        <button>Submit!</button>
+    </form>
+</div>

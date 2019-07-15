@@ -1,0 +1,45 @@
+﻿@model DetailViewModel
+
+@section Title{
+    HomePage
+}
+
+@{
+    bool unit = !Model.IsFahrenheit;
+}
+
+<div>
+    <div class="row">
+        <img class="col-md-12" src="~/img/parks/@(Model.Park.ParkCode.ToLower()).jpg" />
+    </div>
+    <div class="row">
+        <h1 class="col-lg-12">@Model.Park.ParkName</h1>
+    </div>
+    <div>
+        @Model.Park.ParkDescription
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div>
+                @DateTime.Now.DayOfWeek.ToString()
+            </div>
+            <img src="~/img/weather/@(Model.Weather[0].Forecast).png" />
+            <div>High @Model.Weather[0].High Low @Model.Weather[0].Low</div>
+            <div>@Model.Weather[0].WeatherDesc</div>
+        </div>
+        <div class="col-sm-8 align-middle" style="justify-content:center; height:100%; padding-top:50px">
+            <div class="col-md-1"></div>
+            @for (int i = 1; i < 5; i++)
+            {
+            <div class="col-md-2">
+                <div>
+                    @DateTime.Now.AddDays(i).DayOfWeek.ToString()
+                </div>
+                <img class="" src="~/img/weather/@(Model.Weather[i].Forecast).png" style="height:100px"/>
+                <div>High @Model.Weather[i].High</div>
+                <div>Low @Model.Weather[i].Low</div>
+
+            </div>
+            }
+        </div>
+</div>

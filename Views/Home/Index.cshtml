@@ -1,0 +1,27 @@
+﻿@model List<ParkItem>
+
+@section Title{
+    HomePage
+}
+
+@foreach (ParkItem park in Model)
+{
+
+    <div class="row" style="padding-bottom:3%">
+        <div class="col-md-4">
+            <a asp-controller="Home" asp-action="Detail" asp-route-parkCode="@park.ParkCode" class="col-md-12"><img src="~/img/parks/@(park.ParkCode.ToLower()).jpg" class="col-md-12 img-thumbnail" style="padding:3px;" /></a>
+        </div>
+        <div class="col-md-8">
+            <div class="park-name">
+                <h2 style="margin:0px">
+                    @park.ParkName
+                </h2>
+                <br>
+            </div>
+            <div class="park-desc">
+                @park.ParkDescription
+            </div>
+        </div>
+    </div>
+
+}
